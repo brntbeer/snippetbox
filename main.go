@@ -11,12 +11,22 @@ func home(w http.ResponseWriter, r *http.Request) {
   w.Write([]byte("Hello from Snippetbox"))
 }
 
+func showSnippet(w http.ResponseWriter, r *http.Request) {
+  w.Write([]byte("Showing Snippets"))
+}
+
+func createSnippet(w http.ResponseWriter, r *http.Request) {
+  w.Write([]byte("Creating a snippet"))
+}
+
 func main(){
   //Use the http.NewServeMux() function to init a new servemux, then
   // register the home function as the handler for the '/' route
 
   mux := http.NewServeMux()
   mux.HandleFunc("/", home)
+  mux.HandleFunc("/snippet", showSnippet)
+  mux.HandleFunc("/snippet/create", createSnippet)
 
   // Use http.ListenAndServe() to start webserver. Takes in two params
   // port and the mux object. If it returns an error we progress in
