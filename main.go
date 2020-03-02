@@ -8,6 +8,13 @@ import (
 // Define a home handler function which writes a byte slice containing
 // "hello from snippetbox" at the response body
 func home(w http.ResponseWriter, r *http.Request) {
+
+  // 404 if the path isn't actually `/`
+  if r.URL.Path != "/" {
+    http.NotFound(w,r)
+    return
+  }
+
   w.Write([]byte("Hello from Snippetbox"))
 }
 
