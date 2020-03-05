@@ -35,7 +35,9 @@ func createSnippet(w http.ResponseWriter, r *http.Request) {
     http.Error(w, "Method not allowed", 405)
     return
   }
-  w.Write([]byte("Creating a snippet"))
+  w.Header().Set("Content-Type", "application/json")
+  w.Write([]byte(`{"name":"Alex"}`))
+  //w.Write([]byte("Creating a snippet"))
 }
 
 func main(){
