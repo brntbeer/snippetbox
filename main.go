@@ -32,9 +32,9 @@ func showSnippet(w http.ResponseWriter, r *http.Request) {
   }
   // Use the fmt.Fprintf() function to interpolate the id value with our response
   // and write it to the http.ResponseWriter.
-  fmt.Fprintf(w, "Display a specific snippet with ID %d...\n", id)
+  fmt.Fprintf(w, "Display a specific snippet with ID %d...\n\n", id)
   if id % 2 == 0 {
-    w.Write([]byte("Additionally, it was divisible by 2!")
+    w.Write([]byte("Additionally, it was divisible by 2!"))
   }
 }
 
