@@ -5,11 +5,7 @@ import (
   "net/http"
 )
 
-// Define a home handler function which writes a byte slice containing
-// "hello from snippetbox" at the response body
-func home(w http.ResponseWriter, r *http.Request) {
-  w.Write([]byte("Hello from Snippetbox"))
-}
+
 
 func main(){
   //Use the http.NewServeMux() function to init a new servemux, then
@@ -17,6 +13,8 @@ func main(){
 
   mux := http.NewServeMux()
   mux.HandleFunc("/", home)
+  mux.HandleFunc("/snippet", showSnippet)
+  mux.HandleFunc("/snippet/create", createSnippet)
 
   // Use http.ListenAndServe() to start webserver. Takes in two params
   // port and the mux object. If it returns an error we progress in
