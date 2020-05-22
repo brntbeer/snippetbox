@@ -22,6 +22,6 @@ func main(){
   // Note: Any error returned by http.ListenAndServe() is always non-nil
 
   log.Println("starting server on port 4000")
-  err := http.ListenAndServe(":4000", mux)
+  err := http.ListenAndServe("localhost:4000", mux)
   log.Fatal(err)
 }
